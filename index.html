@@ -4,51 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>千岛湖 6 人自驾互动地图</title>
-  <meta name="description" content="上海出发，千岛湖 6 人高铁到站租车自驾三套方案互动地图" />
+  <meta name="description" content="上海出发，千岛湖 6 人高铁到站租车自驾三套方案、景点、美食与路线图" />
   <link rel="preconnect" href="https://unpkg.com" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header class="hero">
-    <nav class="nav"><span class="badge">Qiandao Lake · Interactive Plan</span><span class="badge">7/21 - 7/24 · 6人 · 高铁站租车</span></nav>
+    <nav class="nav">
+      <span class="badge">Qiandao Lake · Detailed Plan</span>
+      <span class="badge">Leaflet + OpenStreetMap · 无 Key</span>
+    </nav>
     <h1>千岛湖 6 人自驾互动地图</h1>
-    <p>优化为“左侧方案控制台 + 右侧真实地图 + 下方驾驶规则”的结构。默认用 Leaflet + OpenStreetMap 直接显示地图；高德/百度 API 仍保留为可选高级模式。</p>
-    <div class="hero-actions"><a class="btn primary" href="#map-card">进入地图</a><a class="btn ghost" href="#map-how">地图接入方式</a></div>
+    <p>默认使用 Leaflet + OpenStreetMap 显示真实地图、路线连线和标点；不接入高德/百度地图 API。高德与 Apple Maps 只作为外部导航跳转保留。</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#map-card">看路线图</a>
+      <a class="btn ghost" href="#food-section">美食与景点</a>
+    </div>
   </header>
 
   <main class="wrap">
     <section class="stats">
-      <article class="stat"><span class="k">Outbound</span><b>G7357 上海虹桥 08:35 → 千岛湖 10:45</b><span>上午到站，取车后午饭/采购/入住。</span></article>
-      <article class="stat"><span class="k">Inbound</span><b>G7192 千岛湖 15:51 → 上海虹桥 17:54</b><span>建议 14:30 前完成还车。</span></article>
-      <article class="stat"><span class="k">Stay</span><b>花田墅湖景度假别墅</b><span>翡翠岛别墅区，先确认大车停车位。</span></article>
-      <article class="stat"><span class="k">Driver</span><b>单司机 + 揽境 7 座 SUV</b><span>不完整环湖，不夜开山路，停车宁远勿窄。</span></article>
+      <article class="stat"><span class="k">去程</span><b>G7357 上海虹桥 08:35 → 千岛湖 10:45</b><span>到站取车、验车、午饭、采购、入住。</span></article>
+      <article class="stat"><span class="k">返程</span><b>G7192 千岛湖 15:51 → 上海虹桥 17:54</b><span>14:30 前完成还车最稳。</span></article>
+      <article class="stat"><span class="k">住宿</span><b>花田墅湖景度假别墅</b><span>翡翠岛别墅区，提前确认揽境停车位。</span></article>
+      <article class="stat"><span class="k">驾驶原则</span><b>单司机 + 大 7 座 SUV</b><span>不夜开山路，不完整环湖，停车宁远勿窄。</span></article>
     </section>
 
     <section class="app">
       <aside class="panel">
         <span class="k">Route Console</span>
-        <h2>三套方案切换</h2>
+        <h2>三套方案</h2>
         <div class="tabs" id="planTabs"></div>
         <div class="day-chips" id="dayChips"></div>
         <div class="plan-box" id="planBox"></div>
-        <div class="actions">
+        <div class="daily-box" id="dailyFoodSpot"></div>
+        <div class="actions three">
           <button class="btn dark" id="copyBtn">复制当天路线</button>
-          <button class="btn light" id="navBtn">打开高德导航</button>
+          <button class="btn light" id="gaodeRouteBtn">打开高德</button>
+          <button class="btn light" id="appleRouteBtn">Apple Maps</button>
         </div>
-        <div class="places" id="places"></div>
+        <div class="route-list" id="routeList"></div>
       </aside>
 
       <section class="map-card" id="map-card">
         <div class="map-head">
-          <div><span class="k">Live Map</span><h2>地点标点与路线连线</h2></div>
+          <div><span class="k">Route Map</span><h2>当天路线图</h2></div>
           <div class="toolbar">
-            <select id="providerSelect" aria-label="地图源">
-              <option value="leaflet">Leaflet/OSM 无 Key 地图</option>
-              <option value="schematic">示意图</option>
-              <option value="amap">高德 JS API</option>
-              <option value="baidu">百度 WebGL API</option>
-            </select>
             <button class="mini" id="fitBtn">重置视野</button>
             <button class="mini" id="fullBtn">全屏地图</button>
           </div>
@@ -57,9 +59,35 @@
       </section>
     </section>
 
-    <section class="below">
+    <section class="detail-grid" id="food-section">
       <article class="drawer">
-        <span class="k">Single Driver Rules</span>
+        <span class="k">Food Plan</span>
+        <h2>美食安排</h2>
+        <div class="cards" id="foodCards"></div>
+      </article>
+      <article class="quick">
+        <span class="k">Attraction Plan</span>
+        <h2>游玩特点 / 景点取舍</h2>
+        <div class="cards" id="spotCards"></div>
+      </article>
+    </section>
+
+    <section class="detail-grid">
+      <article class="drawer">
+        <span class="k">Timeline</span>
+        <h2>当天详细时间线</h2>
+        <div id="timeline" class="timeline"></div>
+      </article>
+      <article class="quick">
+        <span class="k">Today Meals</span>
+        <h2>当天吃什么</h2>
+        <div id="mealBox" class="meal-box"></div>
+      </article>
+    </section>
+
+    <section class="detail-grid">
+      <article class="drawer">
+        <span class="k">Driver Rules</span>
         <h2>单司机执行规则</h2>
         <div class="grid2">
           <div class="rule"><b>停车</b><br>优先地面大停车场和远离入口的空位；两边夹车、路边侧方、景区门口窄位直接放弃。</div>
@@ -68,42 +96,19 @@
           <div class="rule"><b>租车</b><br>确认 360 全景影像、前后雷达、车损无忧/不计免赔，最好加轮胎轮毂保障。</div>
         </div>
       </article>
-
-      <article class="quick" id="map-how">
-        <span class="k">Map Integration</span>
-        <h2>地图插入方式</h2>
-        <div class="map-options">
-          <div class="option"><strong>当前默认：Leaflet + OpenStreetMap</strong>无需 Key，打开网页即可显示真实底图、标点和路线。缺点是国内 POI 细节和导航能力弱一些。</div>
-          <div class="option"><strong>高德 JS API</strong>适合国内自驾导航。URL 后加：<br><code>?provider=amap&key=你的Key&scode=安全密钥</code></div>
-          <div class="option"><strong>百度 WebGL API</strong>适合百度生态。URL 后加：<br><code>?provider=baidu&ak=你的AK</code></div>
-        </div>
-      </article>
-    </section>
-
-    <section class="below">
-      <article class="drawer">
-        <span class="k">Transport Timeline</span>
-        <h2>高铁与还车时间轴</h2>
-        <div class="timeline">
-          <div class="time"><b>07/21 08:35</b><p>上海虹桥出发，G7357，10:45 到千岛湖站。</p></div>
-          <div class="time"><b>07/21 11:10</b><p>千岛湖站取车，拍车身视频，确认油量、影像、雷达和保险。</p></div>
-          <div class="time"><b>07/24 13:10</b><p>从别墅出发去高铁站方向，预留加油、验车、搬运行李时间。</p></div>
-          <div class="time"><b>07/24 15:51</b><p>千岛湖站返程，G7192，17:54 到上海虹桥。</p></div>
-        </div>
-      </article>
       <article class="quick">
-        <span class="k">Use on phone</span>
-        <h2>手机上怎么用</h2>
+        <span class="k">Map Use</span>
+        <h2>地图说明</h2>
         <div class="map-options">
-          <div class="option">点左侧地点卡片，地图会定位到该地点；点地图标记可看类型和备注。</div>
-          <div class="option">点“打开高德导航”会用当天第一个点到最后一个点生成导航链接。中间途经点仍按页面路线顺序执行。</div>
-          <div class="option">需要真实高德底图时，把高德 Key 放在 URL 参数里，不写进仓库，避免 Key 被长期暴露。</div>
+          <div class="option"><strong>网页内地图</strong>只使用 Leaflet + OpenStreetMap，无 API Key，无高德/百度 JS API 接入。</div>
+          <div class="option"><strong>外部导航</strong>每个地点卡片保留“打开高德”和“Apple Maps”跳转；正式驾驶时按当天路线顺序分段导航。</div>
+          <div class="option"><strong>正式开车</strong>网页负责看全局方案；实时路况、限速、停车入口仍以导航 App 当时信息为准。</div>
         </div>
       </article>
     </section>
   </main>
 
-  <footer class="footer">坐标为行程规划近似标点，正式驾驶请以高德/百度实时导航和酒店确认地址为准。Leaflet/OSM 地图用于路线感知，不替代国内实时路况导航。</footer>
+  <footer class="footer">坐标为行程规划近似标点，正式驾驶请以实时导航、酒店确认地址和景区当天开放情况为准。司机不饮酒，第三排也要系安全带。</footer>
   <div class="toast" id="toast">已复制</div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
