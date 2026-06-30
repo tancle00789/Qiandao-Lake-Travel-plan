@@ -10,8 +10,7 @@ https://tancle00789.github.io/Qiandao-Lake-Travel-plan/
 
 ## 当前版本
 
-- 默认使用 Leaflet + OpenStreetMap，无需 API Key。
-- 不接入高德或百度地图 JS API。
+- 默认使用 Leaflet + OpenStreetMap，无需 Key。
 - 页面内直接显示真实地图底图、地点标点和路线连线。
 - 保留外部跳转：打开高德、Apple Maps，便于手机端正式导航。
 - 三套方案可切换：
@@ -22,7 +21,7 @@ https://tancle00789.github.io/Qiandao-Lake-Travel-plan/
   - 路线图
   - 详细时间线
   - 午饭、晚饭、补给建议
-  - 景点取舍
+  - 游玩特点 / 景点取舍
   - 美食建议
   - 单司机 + 大 7 座 SUV 风险规则
 
