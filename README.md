@@ -11,8 +11,9 @@ https://tancle00789.github.io/Qiandao-Lake-Travel-plan/
 ## 当前版本
 
 - 默认使用 Leaflet + OpenStreetMap，无需 API Key。
+- 不接入高德或百度地图 JS API。
 - 页面内直接显示真实地图底图、地点标点和路线连线。
-- 保留“打开高德”和“Apple Maps”按钮，便于手机端正式导航。
+- 保留外部跳转：打开高德、Apple Maps，便于手机端正式导航。
 - 三套方案可切换：
   - 方案 A：新手稳妥度假版
   - 方案 B：西北半环湖经典版
