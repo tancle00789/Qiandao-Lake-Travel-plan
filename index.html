@@ -13,13 +13,13 @@
   <header class="hero">
     <nav class="nav">
       <span class="badge">Qiandao Lake · Detailed Plan</span>
-      <span class="badge">Leaflet + OpenStreetMap · 无 API Key</span>
+      <span class="badge">Leaflet + OpenStreetMap · 无 Key</span>
     </nav>
     <h1>千岛湖 6 人自驾互动地图</h1>
-    <p>把路线、景点、美食、停车、单司机安全边界放在一张网页里。默认直接加载 Leaflet + OpenStreetMap 地图；保留“打开高德”和“Apple Maps”的跳转方式。</p>
+    <p>默认使用 Leaflet + OpenStreetMap 显示真实地图、路线连线和标点；不接入高德/百度地图 API。高德与 Apple Maps 只作为外部导航跳转保留。</p>
     <div class="hero-actions">
       <a class="btn primary" href="#map-card">看路线图</a>
-      <a class="btn ghost" href="#food-section">看美食/景点</a>
+      <a class="btn ghost" href="#food-section">美食与景点</a>
     </div>
   </header>
 
@@ -38,9 +38,10 @@
         <div class="tabs" id="planTabs"></div>
         <div class="day-chips" id="dayChips"></div>
         <div class="plan-box" id="planBox"></div>
+        <div class="daily-box" id="dailyFoodSpot"></div>
         <div class="actions three">
           <button class="btn dark" id="copyBtn">复制当天路线</button>
-          <button class="btn light" id="amapRouteBtn">高德路线</button>
+          <button class="btn light" id="gaodeRouteBtn">打开高德</button>
           <button class="btn light" id="appleRouteBtn">Apple Maps</button>
         </div>
         <div class="route-list" id="routeList"></div>
@@ -61,6 +62,19 @@
       </section>
     </section>
 
+    <section class="detail-grid" id="food-section">
+      <article class="drawer">
+        <span class="k">Food Plan</span>
+        <h2>美食安排</h2>
+        <div class="cards" id="foodCards"></div>
+      </article>
+      <article class="quick">
+        <span class="k">Attraction Plan</span>
+        <h2>景点取舍</h2>
+        <div class="cards" id="spotCards"></div>
+      </article>
+    </section>
+
     <section class="detail-grid">
       <article class="drawer">
         <span class="k">Timeline</span>
@@ -68,22 +82,9 @@
         <div id="timeline" class="timeline"></div>
       </article>
       <article class="quick">
-        <span class="k">Meals</span>
+        <span class="k">Today Meals</span>
         <h2>当天吃什么</h2>
         <div id="mealBox" class="meal-box"></div>
-      </article>
-    </section>
-
-    <section class="detail-grid" id="food-section">
-      <article class="drawer">
-        <span class="k">Food</span>
-        <h2>美食建议</h2>
-        <div class="cards" id="foodCards"></div>
-      </article>
-      <article class="quick">
-        <span class="k">Attractions</span>
-        <h2>景点取舍</h2>
-        <div class="cards" id="spotCards"></div>
       </article>
     </section>
 
@@ -100,11 +101,11 @@
       </article>
       <article class="quick">
         <span class="k">Map Use</span>
-        <h2>地图使用方式</h2>
+        <h2>地图说明</h2>
         <div class="map-options">
-          <div class="option"><strong>网页内地图</strong>默认 Leaflet + OpenStreetMap，无 API Key，直接显示路线图、标点、连线和弹窗。</div>
-          <div class="option"><strong>高德 / Apple Maps</strong>每个地点都有跳转按钮；当天路线按钮按“首点 → 末点”生成导航，实际驾驶建议按页面顺序分段导航。</div>
-          <div class="option"><strong>正式开车</strong>网页负责看全局方案；实时路况、限行、停车入口仍以高德或 Apple Maps 实时导航为准。</div>
+          <div class="option"><strong>网页内地图</strong>只使用 Leaflet + OpenStreetMap，无 API Key，无高德/百度 JS API 接入。</div>
+          <div class="option"><strong>外部导航</strong>每个地点卡片保留“打开高德”和“Apple Maps”跳转；正式驾驶时按当天路线顺序分段导航。</div>
+          <div class="option"><strong>正式开车</strong>网页负责看全局方案；实时路况、限速、停车入口仍以导航 App 当时信息为准。</div>
         </div>
       </article>
     </section>
