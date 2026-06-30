@@ -5,93 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>千岛湖 6 人自驾互动地图</title>
   <meta name="description" content="上海出发，千岛湖 6 人高铁到站租车自驾三套方案互动地图" />
-  <style>
-    :root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#e5e7ef;--brand:#1677ff;--brand2:#18a058;--warn:#f59e0b;--shadow:0 20px 60px rgba(25,40,80,.12);--radius:24px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:linear-gradient(180deg,#eef6ff 0,#f5f7fb 36%,#f7f8fb 100%);color:var(--ink)}a{color:inherit}.hero{position:relative;overflow:hidden;min-height:430px;padding:28px clamp(18px,4vw,64px) 54px;background:radial-gradient(circle at 70% 25%,rgba(20,140,255,.28),transparent 36%),linear-gradient(135deg,#0b3b70,#1267a8 52%,#64b8cc)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,12,32,.54),rgba(4,12,32,.10)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=75');background-size:cover;background-position:center;mix-blend-mode:soft-light;opacity:.75}.topbar,.hero__content{position:relative;z-index:1}.topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;color:#fff}.pill{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 13px;background:rgba(255,255,255,.14);backdrop-filter:blur(12px);font-size:13px}.topbar__meta{opacity:.9;font-size:14px}.hero__content{max-width:980px;margin-top:70px;color:#fff}.eyebrow{margin:0 0 10px;letter-spacing:.08em;text-transform:uppercase;font-size:13px;opacity:.9}.hero h1{font-size:clamp(36px,6vw,70px);line-height:1.02;margin:0 0 18px;font-weight:850}.hero__desc{max-width:720px;margin:0;font-size:18px;line-height:1.8;opacity:.92}.hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.button{border-radius:999px;text-decoration:none;padding:13px 18px;font-weight:700}.button--primary{background:#fff;color:#0f4d8b}.button--ghost{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.12)}main{max-width:1280px;margin:-38px auto 80px;padding:0 clamp(16px,3vw,36px);position:relative;z-index:2}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px}.stat-card,.panel,.map-shell,.note-card,.timeline{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow);border-radius:var(--radius)}.stat-card{padding:20px}.stat-card__label,.section-kicker{display:inline-block;font-size:12px;color:var(--brand);text-transform:uppercase;letter-spacing:.08em;font-weight:800}.stat-card strong{display:block;margin:8px 0 8px;font-size:17px}.stat-card p{margin:0;color:var(--muted);line-height:1.65}.stat-card--warning .stat-card__label{color:var(--warn)}.layout{display:grid;grid-template-columns:minmax(320px,400px) 1fr;gap:18px;align-items:start}.panel{padding:20px}.panel h2,.map-toolbar h2,.note-card h2,.timeline h2{margin:6px 0 0;font-size:24px}.tabs{display:grid;gap:10px;margin:18px 0}.tab{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:18px;padding:14px;cursor:pointer;transition:.2s}.tab:hover{transform:translateY(-1px);border-color:#b8cef5}.tab.active{border-color:var(--brand);box-shadow:0 10px 24px rgba(22,119,255,.15);background:#f0f7ff}.tab b{display:block;margin-bottom:5px}.tab span{display:block;color:var(--muted);font-size:13px;line-height:1.5}.plan-info{padding:15px;border-radius:18px;background:#f8fafc;border:1px solid var(--line);color:var(--muted);line-height:1.7}.plan-info b{color:var(--ink)}.day-list{display:grid;gap:12px;margin-top:14px}.day-card{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fff;cursor:pointer}.day-card.active{border-color:var(--brand2);background:#f2fff7}.day-card h3{margin:0 0 7px;font-size:16px}.day-card p{margin:0;color:var(--muted);line-height:1.55;font-size:13px}.map-shell{overflow:hidden}.map-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:20px;border-bottom:1px solid var(--line)}.toolbar-actions{display:flex;gap:8px;align-items:center}select,.small-btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;color:var(--ink)}.small-btn{cursor:pointer;font-weight:700}.map{height:610px;position:relative;background:#e9f1fb;overflow:hidden}.fallback-map{position:absolute;inset:0;background:linear-gradient(135deg,#dceeff,#f8fbff 55%,#eaf8ef)}.lake{position:absolute;inset:7% 8%;border-radius:42% 58% 50% 40%;background:radial-gradient(circle at 42% 38%,#95d4ff,#3f9ed4 52%,#1376ad);box-shadow:inset 0 0 80px rgba(255,255,255,.42);opacity:.82}.route-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.route-line{fill:none;stroke:#ff7a00;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:9 8}.pin{position:absolute;transform:translate(-50%,-100%);width:34px;height:34px;border-radius:50% 50% 50% 4px;rotate:-45deg;background:#1677ff;box-shadow:0 10px 24px rgba(0,0,0,.2);border:3px solid #fff;display:grid;place-items:center}.pin:after{content:"";width:10px;height:10px;border-radius:50%;background:#fff}.pin.active{background:#ef4444;z-index:4}.pin-label{position:absolute;transform:translate(-50%,10px);background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:12px;white-space:nowrap;box-shadow:0 8px 20px rgba(20,40,80,.12)}.map-status{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.7);border-radius:18px;padding:12px 14px;box-shadow:0 12px 30px rgba(0,0,0,.12);font-size:13px;color:var(--muted);line-height:1.65}.info-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}.note-card,.timeline{padding:20px}.checklist{display:grid;gap:12px;margin-top:16px}.check{padding:13px 14px;border-radius:16px;background:#f8fafc;border:1px solid var(--line);line-height:1.65}.check b{color:var(--brand)}.timeline-list{display:grid;gap:12px;margin-top:16px}.time-item{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:13px;border:1px solid var(--line);border-radius:16px;background:#fff}.time-item time{font-weight:800;color:var(--brand)}.time-item p{margin:0;color:var(--muted);line-height:1.6}.footer{max-width:1280px;margin:0 auto 40px;padding:0 36px;color:var(--muted);font-size:13px;line-height:1.6}.amap-info-content,.BMap_bubble_content{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}@media(max-width:980px){.summary-grid{grid-template-columns:repeat(2,1fr)}.layout,.info-grid{grid-template-columns:1fr}.map{height:520px}}@media(max-width:620px){.topbar{align-items:flex-start;flex-direction:column}.summary-grid{grid-template-columns:1fr}.map-toolbar{align-items:flex-start;flex-direction:column}.toolbar-actions{width:100%}select,.small-btn{flex:1}.hero{min-height:500px}.time-item{grid-template-columns:1fr}.map{height:500px}}
-  </style>
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header class="hero">
-    <nav class="topbar"><span class="pill">Qiandao Lake · Road Trip</span><span class="topbar__meta">7/21 - 7/24 · 6人 · 高铁站租车</span></nav>
-    <section class="hero__content">
-      <p class="eyebrow">上海虹桥 ⇄ 千岛湖站｜大众揽境 7 座 SUV｜单司机安全版</p>
-      <h1>千岛湖 6 人自驾互动地图</h1>
-      <p class="hero__desc">三套路线方案、每日节点、地图标点、停车策略与返程冗余统一在一个网页中查看。默认使用离线示意地图，也可通过 URL 参数接入高德或百度地图。</p>
-      <div class="hero__actions"><a href="#map-card" class="button button--primary">查看地图标点</a><a href="#plans" class="button button--ghost">切换三套方案</a></div>
-    </section>
+    <nav class="nav"><span class="badge">Qiandao Lake · Interactive Plan</span><span class="badge">7/21 - 7/24 · 6人 · 高铁站租车</span></nav>
+    <h1>千岛湖 6 人自驾互动地图</h1>
+    <p>优化为“左侧方案控制台 + 右侧真实地图 + 下方驾驶规则”的结构。默认用 Leaflet + OpenStreetMap 直接显示地图；高德/百度 API 仍保留为可选高级模式。</p>
+    <div class="hero-actions"><a class="btn primary" href="#map-card">进入地图</a><a class="btn ghost" href="#map-how">地图接入方式</a></div>
   </header>
 
-  <main>
-    <section class="summary-grid" id="overview">
-      <article class="stat-card"><span class="stat-card__label">去程</span><strong>G7357 上海虹桥 08:35 → 千岛湖 10:45</strong><p>到站后取车、验车、装行李，午饭后入住。</p></article>
-      <article class="stat-card"><span class="stat-card__label">返程</span><strong>G7192 千岛湖 15:51 → 上海虹桥 17:54</strong><p>建议 14:30 前完成还车，避免时间压迫。</p></article>
-      <article class="stat-card"><span class="stat-card__label">住宿</span><strong>千岛湖花田墅湖景度假别墅</strong><p>翡翠岛别墅区，适合 6 人整套入住，但需确认床位与停车。</p></article>
-      <article class="stat-card stat-card--warning"><span class="stat-card__label">驾驶原则</span><strong>不完整环湖，不夜开山路</strong><p>停车宁远勿窄，副驾只负责一个指挥口径。</p></article>
+  <main class="wrap">
+    <section class="stats">
+      <article class="stat"><span class="k">Outbound</span><b>G7357 上海虹桥 08:35 → 千岛湖 10:45</b><span>上午到站，取车后午饭/采购/入住。</span></article>
+      <article class="stat"><span class="k">Inbound</span><b>G7192 千岛湖 15:51 → 上海虹桥 17:54</b><span>建议 14:30 前完成还车。</span></article>
+      <article class="stat"><span class="k">Stay</span><b>花田墅湖景度假别墅</b><span>翡翠岛别墅区，先确认大车停车位。</span></article>
+      <article class="stat"><span class="k">Driver</span><b>单司机 + 揽境 7 座 SUV</b><span>不完整环湖，不夜开山路，停车宁远勿窄。</span></article>
     </section>
 
-    <section class="layout" id="map-card">
-      <aside class="panel" id="plans"><div class="panel__head"><span class="section-kicker">Route Plans</span><h2>三套方案</h2></div><div class="tabs" id="planTabs" role="tablist"></div><div id="planInfo" class="plan-info"></div><div id="dayList" class="day-list"></div></aside>
-      <section class="map-shell"><div class="map-toolbar"><div><span class="section-kicker">Interactive Map</span><h2>地点标点与路线</h2></div><div class="toolbar-actions"><select id="providerSelect" aria-label="选择地图源"><option value="fallback">示意图</option><option value="amap">高德 API</option><option value="baidu">百度 API</option></select><button id="fitBtn" class="small-btn">重置视野</button></div></div><div id="map" class="map"><div class="map-status" id="mapStatus">正在加载地图...</div></div></section>
+    <section class="app">
+      <aside class="panel">
+        <span class="k">Route Console</span>
+        <h2>三套方案切换</h2>
+        <div class="tabs" id="planTabs"></div>
+        <div class="day-chips" id="dayChips"></div>
+        <div class="plan-box" id="planBox"></div>
+        <div class="actions">
+          <button class="btn dark" id="copyBtn">复制当天路线</button>
+          <button class="btn light" id="navBtn">打开高德导航</button>
+        </div>
+        <div class="places" id="places"></div>
+      </aside>
+
+      <section class="map-card" id="map-card">
+        <div class="map-head">
+          <div><span class="k">Live Map</span><h2>地点标点与路线连线</h2></div>
+          <div class="toolbar">
+            <select id="providerSelect" aria-label="地图源">
+              <option value="leaflet">Leaflet/OSM 无 Key 地图</option>
+              <option value="schematic">示意图</option>
+              <option value="amap">高德 JS API</option>
+              <option value="baidu">百度 WebGL API</option>
+            </select>
+            <button class="mini" id="fitBtn">重置视野</button>
+            <button class="mini" id="fullBtn">全屏地图</button>
+          </div>
+        </div>
+        <div id="map" class="map"><div class="status" id="status">地图加载中...</div></div>
+      </section>
     </section>
 
-    <section class="info-grid">
-      <article class="note-card"><span class="section-kicker">Driver Rules</span><h2>单司机 + 大 7 座 SUV 执行规则</h2><div class="checklist"><div class="check"><b>停车：</b>优先地面大停车场、远离入口的空位；两边夹车、路边侧方和景区门口窄位直接放弃。</div><div class="check"><b>副驾：</b>负责导航、右侧盲区、找停车场入口、停车下车指挥；停车时只听一个人。</div><div class="check"><b>驾驶：</b>17:30 前结束湖边/山路驾驶；雨天取消远线；不为了打卡进入窄村路。</div><div class="check"><b>租车：</b>确认 360 全景影像、前后雷达、车损无忧/不计免赔，最好加轮胎轮毂保障。</div></div></article>
-      <article class="timeline"><span class="section-kicker">Transport</span><h2>高铁与还车时间轴</h2><div class="timeline-list"><div class="time-item"><time>07/21 08:35</time><p>上海虹桥出发，G7357，10:45 到千岛湖站。</p></div><div class="time-item"><time>07/21 11:10</time><p>千岛湖站取车，拍车身视频，确认油量、影像、雷达与保险。</p></div><div class="time-item"><time>07/24 13:10</time><p>从别墅出发去高铁站方向，预留加油、验车、搬运行李时间。</p></div><div class="time-item"><time>07/24 15:51</time><p>千岛湖站返程，G7192，17:54 到上海虹桥。</p></div></div></article>
+    <section class="below">
+      <article class="drawer">
+        <span class="k">Single Driver Rules</span>
+        <h2>单司机执行规则</h2>
+        <div class="grid2">
+          <div class="rule"><b>停车</b><br>优先地面大停车场和远离入口的空位；两边夹车、路边侧方、景区门口窄位直接放弃。</div>
+          <div class="rule"><b>副驾</b><br>负责导航、右侧盲区、找停车场入口、停车下车指挥；停车时只听一个人。</div>
+          <div class="rule"><b>驾驶</b><br>17:30 前结束湖边/山路驾驶；雨天取消远线；不为了打卡进入窄村路。</div>
+          <div class="rule"><b>租车</b><br>确认 360 全景影像、前后雷达、车损无忧/不计免赔，最好加轮胎轮毂保障。</div>
+        </div>
+      </article>
+
+      <article class="quick" id="map-how">
+        <span class="k">Map Integration</span>
+        <h2>地图插入方式</h2>
+        <div class="map-options">
+          <div class="option"><strong>当前默认：Leaflet + OpenStreetMap</strong>无需 Key，打开网页即可显示真实底图、标点和路线。缺点是国内 POI 细节和导航能力弱一些。</div>
+          <div class="option"><strong>高德 JS API</strong>适合国内自驾导航。URL 后加：<br><code>?provider=amap&key=你的Key&scode=安全密钥</code></div>
+          <div class="option"><strong>百度 WebGL API</strong>适合百度生态。URL 后加：<br><code>?provider=baidu&ak=你的AK</code></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="below">
+      <article class="drawer">
+        <span class="k">Transport Timeline</span>
+        <h2>高铁与还车时间轴</h2>
+        <div class="timeline">
+          <div class="time"><b>07/21 08:35</b><p>上海虹桥出发，G7357，10:45 到千岛湖站。</p></div>
+          <div class="time"><b>07/21 11:10</b><p>千岛湖站取车，拍车身视频，确认油量、影像、雷达和保险。</p></div>
+          <div class="time"><b>07/24 13:10</b><p>从别墅出发去高铁站方向，预留加油、验车、搬运行李时间。</p></div>
+          <div class="time"><b>07/24 15:51</b><p>千岛湖站返程，G7192，17:54 到上海虹桥。</p></div>
+        </div>
+      </article>
+      <article class="quick">
+        <span class="k">Use on phone</span>
+        <h2>手机上怎么用</h2>
+        <div class="map-options">
+          <div class="option">点左侧地点卡片，地图会定位到该地点；点地图标记可看类型和备注。</div>
+          <div class="option">点“打开高德导航”会用当天第一个点到最后一个点生成导航链接。中间途经点仍按页面路线顺序执行。</div>
+          <div class="option">需要真实高德底图时，把高德 Key 放在 URL 参数里，不写进仓库，避免 Key 被长期暴露。</div>
+        </div>
+      </article>
     </section>
   </main>
-  <footer class="footer">地图坐标为行程规划近似标点，正式导航请以高德/百度实时路线和酒店确认地址为准。使用真实地图：在地址后加 <code>?provider=amap&key=高德Key&scode=安全密钥</code>，或 <code>?provider=baidu&ak=百度AK</code>。</footer>
 
-  <script>
-  const DATA={
-    places:{
-      station:{name:'千岛湖站',lng:119.1970,lat:29.6043,x:72,y:78,type:'交通',note:'高铁到站租车/还车点。'},
-      hotel:{name:'花田墅湖景度假别墅',lng:119.0204,lat:29.6133,x:39,y:57,type:'住宿',note:'翡翠岛别墅区，需确认6人床位与大车停车。'},
-      tianyushan:{name:'天屿山观景台',lng:119.0420,lat:29.6083,x:45,y:52,type:'观景',note:'适合第一天傍晚看湖景，不跑远路。'},
-      bridge:{name:'千岛湖大桥',lng:119.0310,lat:29.6280,x:47,y:43,type:'观景/自驾',note:'半环湖主线入口之一，注意停车不要临停在路边。'},
-      jinfeng:{name:'金峰/小金山沿湖段',lng:118.9490,lat:29.6320,x:31,y:39,type:'沿湖自驾',note:'湖湾和弯道较多，白天行驶，雨天缩短。'},
-      jiangjia:{name:'姜家镇',lng:118.7800,lat:29.6140,x:15,y:52,type:'午饭/补给',note:'西北半环湖中段，适合作为掉头或午饭节点。'},
-      lion:{name:'文渊狮城',lng:118.7320,lat:29.6640,x:12,y:31,type:'景点备选',note:'比姜家更远，单司机视状态决定是否去。'},
-      beer:{name:'千岛湖啤酒小镇/灯塔',lng:119.0880,lat:29.6000,x:55,y:62,type:'拍照',note:'东南轻松线，停车相对明确。'},
-      oxygen:{name:'千岛湖森林氧吧',lng:119.1690,lat:29.5400,x:74,y:69,type:'避暑',note:'7月适合降温散步，但返程不要太晚。'},
-      pier:{name:'中心/东南湖区码头',lng:119.0630,lat:29.5960,x:50,y:64,type:'游船',note:'船班以当天售票为准，会占掉半天以上。'},
-      drift:{name:'漂流/水上项目区',lng:119.1390,lat:29.5350,x:67,y:73,type:'玩水',note:'漂流后建议直接回别墅休息，不再跑远线。'},
-      supermarket:{name:'镇区超市/采购点',lng:119.0480,lat:29.6080,x:47,y:57,type:'补给',note:'第一天采购水、零食和次日车上用品。'}
-    },
-    plans:{
-      A:{title:'方案A：新手稳妥度假版',tag:'最稳，司机压力最低',desc:'第一天适应车，第二天短半环湖，第三天东南轻松线，第四天还车返沪。适合把风险压到最低。',days:[
-        {title:'D1 取车入住 + 别墅休整',route:['station','supermarket','hotel','tianyushan','hotel'],note:'不跑长线，熟悉揽境油门、刹车、车长和倒车影像。'},
-        {title:'D2 千岛湖大桥 + 金峰短半环湖',route:['hotel','bridge','jinfeng','hotel'],note:'只体验核心湖边路，不把姜家/芹川设为刚性目标。'},
-        {title:'D3 啤酒小镇 + 森林氧吧',route:['hotel','beer','oxygen','hotel'],note:'轻松拍照和避暑，给唯一司机恢复。'},
-        {title:'D4 退房 + 还车返沪',route:['hotel','station'],note:'13:10 左右出发去高铁站，14:30 前完成还车。'}]},
-      B:{title:'方案B：西北半环湖经典版',tag:'自驾感最强',desc:'把主自驾体验集中到 D2：千岛湖大桥、金峰/小金山、姜家镇，状态好再延伸文渊狮城。',days:[
-        {title:'D1 取车 + 入住 + 采购',route:['station','supermarket','hotel'],note:'晚上以别墅活动为主，不夜开湖边路。'},
-        {title:'D2 西北半环湖主线',route:['hotel','bridge','jinfeng','jiangjia','lion','hotel'],note:'文渊狮城为状态良好时的延伸点；雨天取消延伸。'},
-        {title:'D3 码头/啤酒小镇轻松线',route:['hotel','pier','beer','hotel'],note:'减少驾驶时间，转为坐船或拍照。'},
-        {title:'D4 午饭后还车返程',route:['hotel','station'],note:'不临时增加远景点。'}]},
-      C:{title:'方案C：夏日玩水游船版',tag:'7月体验更舒服',desc:'少开山路，多用游船、漂流、水上项目和别墅休整承接夏季高温，适合不想长时间坐车的6人组。',days:[
-        {title:'D1 高铁取车 + 入住',route:['station','supermarket','hotel'],note:'采购补给，检查停车位和别墅区内部道路。'},
-        {title:'D2 游船半日 + 天屿山日落',route:['hotel','pier','tianyushan','hotel'],note:'船班以当天为准；傍晚近距离看景，不跑远。'},
-        {title:'D3 漂流/玩水 + 啤酒小镇',route:['hotel','drift','beer','hotel'],note:'漂流后尽快回别墅洗澡休息，避免疲劳驾驶。'},
-        {title:'D4 退房还车',route:['hotel','station'],note:'15:51 高铁，时间冗余优先。'}]}
-    }
-  };
-  const state={plan:'A',day:0,provider:'fallback',map:null,markers:[],polyline:null};
-  const $=id=>document.getElementById(id);
-  const params=new URLSearchParams(location.search);
-  function init(){state.provider=params.get('provider')||'fallback';$('providerSelect').value=state.provider;renderTabs();renderPlan();loadMap();$('providerSelect').addEventListener('change',e=>{const p=e.target.value;if(p==='fallback'){location.href=location.pathname}else{alert('真实地图需要在 URL 中附带 API Key。\n高德：?provider=amap&key=xxx&scode=xxx\n百度：?provider=baidu&ak=xxx')}});$('fitBtn').addEventListener('click',()=>renderRoute())}
-  function currentPlan(){return DATA.plans[state.plan]} function currentDay(){return currentPlan().days[state.day]}
-  function renderTabs(){const box=$('planTabs');box.innerHTML='';Object.entries(DATA.plans).forEach(([k,p])=>{const btn=document.createElement('button');btn.className='tab'+(state.plan===k?' active':'');btn.innerHTML=`<b>${p.title}</b><span>${p.tag}</span>`;btn.onclick=()=>{state.plan=k;state.day=0;renderTabs();renderPlan();renderRoute()};box.appendChild(btn)})}
-  function renderPlan(){const p=currentPlan();$('planInfo').innerHTML=`<b>${p.tag}</b><br>${p.desc}`;const list=$('dayList');list.innerHTML='';p.days.forEach((d,i)=>{const el=document.createElement('article');el.className='day-card'+(i===state.day?' active':'');el.innerHTML=`<h3>${d.title}</h3><p>${d.route.map(id=>DATA.places[id].name).join(' → ')}</p><p>${d.note}</p>`;el.onclick=()=>{state.day=i;renderPlan();renderRoute()};list.appendChild(el)})}
-  function loadMap(){if(state.provider==='amap'&&params.get('key'))return loadAMap();if(state.provider==='baidu'&&params.get('ak'))return loadBaidu();state.provider='fallback';renderFallback()}
-  function clearMapNode(){const map=$('map');map.innerHTML='<div class="map-status" id="mapStatus"></div>';return map}
-  function renderFallback(){const map=clearMapNode();map.insertAdjacentHTML('afterbegin','<div class="fallback-map"><div class="lake"></div><svg class="route-svg" id="routeSvg"></svg></div>');renderRoute();$('mapStatus').innerHTML='当前为离线示意地图。要加载真实地图，在 URL 后添加：高德 <code>?provider=amap&key=你的Key&scode=安全密钥</code>，或百度 <code>?provider=baidu&ak=你的AK</code>。'}
-  function renderRoute(){if(state.provider==='amap'&&state.map)return renderAMapRoute();if(state.provider==='baidu'&&state.map)return renderBaiduRoute();renderFallbackRoute()}
-  function renderFallbackRoute(){const map=$('map');map.querySelectorAll('.pin,.pin-label').forEach(n=>n.remove());const svg=$('routeSvg');if(!svg)return;svg.innerHTML='';const route=currentDay().route.map(id=>DATA.places[id]);route.forEach((p,i)=>{const pin=document.createElement('div');pin.className='pin'+(i===0?' active':'');pin.style.left=p.x+'%';pin.style.top=p.y+'%';pin.title=p.name;map.appendChild(pin);const lab=document.createElement('div');lab.className='pin-label';lab.style.left=p.x+'%';lab.style.top=p.y+'%';lab.textContent=(i+1)+'. '+p.name;map.appendChild(lab)});const pts=route.map(p=>`${p.x},${p.y}`).join(' ');svg.innerHTML=`<polyline class="route-line" points="${pts}" vector-effect="non-scaling-stroke" />`;const d=currentDay();$('mapStatus').innerHTML=`<b>${currentPlan().title}</b>｜${d.title}<br>${d.route.map(id=>DATA.places[id].name).join(' → ')}<br>${d.note}`}
-  function loadScript(src,cb){const s=document.createElement('script');s.src=src;s.async=true;s.onload=cb;s.onerror=()=>{state.provider='fallback';renderFallback()};document.head.appendChild(s)}
-  function loadAMap(){const key=params.get('key'),scode=params.get('scode');if(scode)window._AMapSecurityConfig={securityJsCode:scode};clearMapNode();loadScript(`https://webapi.amap.com/maps?v=2.0&key=${encodeURIComponent(key)}`,()=>{state.map=new AMap.Map('map',{zoom:10.2,center:[119.02,29.60],viewMode:'2D'});renderAMapRoute()})}
-  function renderAMapRoute(){if(!window.AMap)return renderFallback();state.markers.forEach(m=>m.setMap(null));state.markers=[];if(state.polyline)state.polyline.setMap(null);const route=currentDay().route.map(id=>DATA.places[id]);const path=route.map(p=>[p.lng,p.lat]);route.forEach((p,i)=>{const marker=new AMap.Marker({position:[p.lng,p.lat],title:p.name,label:{content:`${i+1}. ${p.name}`,direction:'top'}});marker.on('click',()=>new AMap.InfoWindow({content:`<b>${p.name}</b><br>${p.type}<br>${p.note}`}).open(state.map,[p.lng,p.lat]));marker.setMap(state.map);state.markers.push(marker)});state.polyline=new AMap.Polyline({path,strokeColor:'#ff7a00',strokeWeight:5,strokeOpacity:.9});state.polyline.setMap(state.map);state.map.setFitView([...state.markers,state.polyline],false,[70,70,70,70]);$('mapStatus').innerHTML=`已加载高德地图｜${currentDay().title}`}
-  function loadBaidu(){const ak=params.get('ak');window.__initBaidu=()=>{clearMapNode();state.map=new BMapGL.Map('map');state.map.centerAndZoom(new BMapGL.Point(119.02,29.60),10);state.map.enableScrollWheelZoom(true);renderBaiduRoute()};loadScript(`https://api.map.baidu.com/api?type=webgl&v=1.0&ak=${encodeURIComponent(ak)}&callback=__initBaidu`,()=>{})}
-  function renderBaiduRoute(){if(!window.BMapGL)return renderFallback();state.map.clearOverlays();const route=currentDay().route.map(id=>DATA.places[id]);const points=route.map(p=>new BMapGL.Point(p.lng,p.lat));route.forEach((p,i)=>{const marker=new BMapGL.Marker(new BMapGL.Point(p.lng,p.lat));const label=new BMapGL.Label(`${i+1}. ${p.name}`,{offset:new BMapGL.Size(14,-28)});marker.setLabel(label);marker.addEventListener('click',()=>{state.map.openInfoWindow(new BMapGL.InfoWindow(`<b>${p.name}</b><br>${p.type}<br>${p.note}`),new BMapGL.Point(p.lng,p.lat))});state.map.addOverlay(marker)});state.map.addOverlay(new BMapGL.Polyline(points,{strokeColor:'#ff7a00',strokeWeight:5,strokeOpacity:.9}));state.map.setViewport(points);$('mapStatus').innerHTML=`已加载百度地图｜${currentDay().title}`}
-  document.addEventListener('DOMContentLoaded',init);
-  </script>
+  <footer class="footer">坐标为行程规划近似标点，正式驾驶请以高德/百度实时导航和酒店确认地址为准。Leaflet/OSM 地图用于路线感知，不替代国内实时路况导航。</footer>
+  <div class="toast" id="toast">已复制</div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
