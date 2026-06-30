@@ -13,7 +13,7 @@ function init() {
   $('fitBtn').onclick = fitRoute;
   $('fullBtn').onclick = () => $('map').requestFullscreen?.();
   $('copyBtn').onclick = copyDay;
-  $('amapRouteBtn').onclick = openAmapRoute;
+  $('gaodeRouteBtn').onclick = openGaodeRoute;
   $('appleRouteBtn').onclick = openAppleRoute;
 }
 
@@ -21,6 +21,7 @@ function renderAll() {
   renderTabs();
   renderDays();
   renderSummary();
+  renderDailyFoodSpot();
   renderRouteList();
   renderTimeline();
   renderMeals();
@@ -57,6 +58,14 @@ function renderSummary() {
   $('planBox').innerHTML = `<b>${plan().tag}</b><br>${plan().desc}<br><br><b>${day().title}</b><br>${day().note}`;
 }
 
+function renderDailyFoodSpot() {
+  const routeNames = routePlaces().filter(p => !['交通', '住宿', '补给/晚饭'].includes(p.type)).map(p => p.name).join(' / ') || '别墅休整';
+  $('dailyFoodSpot').innerHTML = `
+    <div class="mini-card"><b>今日景点</b><span>${routeNames}</span></div>
+    <div class="mini-card"><b>午饭</b><span>${day().meals.lunch}</span></div>
+    <div class="mini-card"><b>晚饭</b><span>${day().meals.dinner}</span></div>`;
+}
+
 function renderRouteList() {
   const box = $('routeList');
   box.innerHTML = '';
@@ -70,7 +79,7 @@ function renderRouteList() {
         <b>${p.name}</b>
         <small>${p.type}｜建议停留 ${p.duration}<br>${p.note}<br>停车：${p.parking}</small>
         <div class="links">
-          <a href="${amapPlace(p)}" target="_blank" rel="noreferrer">打开高德</a>
+          <a href="${gaodePlace(p)}" target="_blank" rel="noreferrer">打开高德</a>
           <a href="${applePlace(p)}" target="_blank" rel="noreferrer">Apple Maps</a>
         </div>
       </div>`;
@@ -124,7 +133,7 @@ function drawRoute() {
   routePlaces().forEach((p, i) => {
     const marker = L.marker([p.lat, p.lng])
       .addTo(state.map)
-      .bindPopup(`<b>${i + 1}. ${p.name}</b><br>${p.type}<br>${p.note}<br><br><a target="_blank" rel="noreferrer" href="${amapPlace(p)}">打开高德</a> · <a target="_blank" rel="noreferrer" href="${applePlace(p)}">Apple Maps</a>`);
+      .bindPopup(`<b>${i + 1}. ${p.name}</b><br>${p.type}<br>${p.note}<br><br><a target="_blank" rel="noreferrer" href="${gaodePlace(p)}">打开高德</a> · <a target="_blank" rel="noreferrer" href="${applePlace(p)}">Apple Maps</a>`);
     marker.on('click', () => { state.selected = routeIds()[i]; renderRouteList(); });
     state.markers.push(marker);
   });
@@ -176,13 +185,13 @@ function fitRoute() {
 
 function setStatus(html) { const s = $('status'); if (s) s.innerHTML = html; }
 
-function amapPlace(p) {
+function gaodePlace(p) {
   return `https://uri.amap.com/marker?position=${p.lng},${p.lat}&name=${encodeURIComponent(p.name)}&coordinate=gaode&callnative=1`;
 }
 function applePlace(p) {
   return `https://maps.apple.com/?ll=${p.lat},${p.lng}&q=${encodeURIComponent(p.name)}`;
 }
-function openAmapRoute() {
+function openGaodeRoute() {
   const r = routePlaces(), a = r[0], b = r[r.length - 1];
   window.open(`https://uri.amap.com/navigation?from=${a.lng},${a.lat},${encodeURIComponent(a.name)}&to=${b.lng},${b.lat},${encodeURIComponent(b.name)}&mode=car&policy=1&coordinate=gaode&callnative=1`, '_blank', 'noopener');
 }
